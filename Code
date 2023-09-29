@@ -1,0 +1,96 @@
+import random
+
+def play():
+
+    user_score = 0
+
+    comp_score = 0
+
+    print("\n⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰")
+
+    print("\nWelcome to the Rock, Paper and Scissors game! Please pick a Gameplay Username to proceed!")
+
+    print("\n⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰ ⊱⋆⊰")
+
+    name = str(input("\n" + "\n" + "Enter your User's name to begin!: "))
+
+    for round_no in range(1, 6):
+
+        print("\n" + "\n" + f"Round Number:  {round_no}")
+
+        user = str(input("\n" + "Enter 'R' for rock, 'S' for scissors and 'P' for paper: ")).capitalize()
+
+        comp = random.choice(['R', 'P', 'S'])
+
+        print("\nMy Pick: "+ str(comp))
+        
+        if user == comp:
+
+            print("\nOops! It's a draw!")
+
+        elif user == 'R' and comp == 'S':
+
+            print(f"\nRock beats Scissors!! One point for {name}.")
+
+            user_score += 1
+
+        elif user == 'R' and comp == 'P':
+
+            print("\nPaper beats Rock!! One point for me.")
+
+            comp_score += 1
+
+        elif user == 'S' and comp == 'R':
+
+            print("\nRock beats Scissors!! One point for me.")
+
+            comp_score += 1
+
+        elif user == 'S' and comp == 'P':
+
+            print(f"\nScissor beats Paper!! One point for {name}.")
+
+            user_score += 1
+
+        elif user == 'P' and comp == 'R':
+
+            print(f"\nPaper beats Rock!! One point for {name}.")
+
+            user_score += 1
+
+        elif user == 'P' and comp == 'S':
+
+            print("\nScissor beats Paper!! One point for me.")
+
+            comp_score += 1
+            
+    print("\n______________")
+
+    print("\n" + "\n" + f"{name}" + "'s" + f" score: {user_score}")
+
+    print(f"\nComputer Score: {comp_score}")
+
+    print("\n______________")
+
+    if user_score > comp_score:
+
+        print("\n★★★★★★★★★★★★★★★★★★★★★")
+
+        print("\nCongratulations! You emerge victorious!")
+
+        print("\n★★★★★★★★★★★★★★★★★★★★★\n")
+
+    elif comp_score > user_score:
+
+        print("\nOopsies! Better luck next time :D\n")
+
+    else:
+
+        print("\n______________")
+
+
+        print("\n" + "It's a tie!!")
+
+        print("\n______________\n")
+
+play()
