@@ -1,0 +1,60 @@
+from getpass import getpass as input
+
+print("BATTLE OF THE AGES")
+print("\nTWO PLAYERS! ONE ROUND! DESTINY AWAITS!")
+print("\nLET US BEGIN!")
+namepy1 = str(input("\nPlayer 1, Identify yourself: "))
+namepy2 = str(input("\nPlayer 2, Identify yourself: "))
+py1score = 1
+py2score = 1
+counter = 1
+while True:
+  print("\nROUND", counter)
+  print("\nSelect your move R(for Rock), S(for Scissors) or P(for Paper)")
+  py1 = input(f"{namepy1} > ")
+  py2 = input(f"{namepy2} > ")
+  counter += 1
+  if py1score == 3 or py2score == 3:
+
+    if py1score > py2score:
+      py2score -= 1
+      print(f"\nThe game ends here! Kudos to {namepy1}!")
+    else:
+      py1score -= 1
+      print(f"The game ends here! Kudos to {namepy2}!")
+    print(f"\nScore of {namepy1} is: {py1score}")
+    print(f"\nScore of {namepy2} is: {py2score}")
+    print(f"\nThank you for playing {namepy1} and {namepy2}!")
+    exit()
+
+  if py1 == py2:
+    print("\nIt's a draw!")
+    continue
+  elif py1 == "R" or py1 == "r" and py2 == "S" or py2 == "s":
+    print("\nRock smashes Scissors! ", namepy1, " wins!")
+    py1score += 1
+    continue
+  elif py1 == "R" or py1 == "r" and py2 == "P" or py2 == "p":
+    print("\nPaper covers Rock! ", namepy2, " wins!")
+    py2score += 1
+    continue
+  elif py1 == "S" or py1 == "s" and py2 == "R" or py2 == "r":
+    print("\nRock smashes Scissors! ", namepy2, " wins!")
+    py2score += 1
+    continue
+  elif py1 == "S" or py1 == "s" and py2 == "P" or py2 == "p":
+    print("\nScissors cuts Paper! ", namepy1, " wins!")
+    py1score += 1
+    continue
+  elif py1 == "P" or py1 == "p" and py2 == "R" or py2 == "r":
+    print("\nPaper covers Rock! ", namepy1, " wins!")
+    py1score += 1
+    continue
+  elif py1 == "P" or py1 == "p" and py2 == "S" or py2 == "s":
+    print("\nScissors cuts Paper! ", namepy2, " wins!")
+    py2score += 1
+    continue
+  else:
+    print("\nInvalid move!")
+    continue
+
